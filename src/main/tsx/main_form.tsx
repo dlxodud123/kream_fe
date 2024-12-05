@@ -5,10 +5,12 @@ import Footer from '../../common/footer/tsx/footer';
 
 const Main_form: React.FC = () => {
 
+    const path: string = "main";
+
     return(
-        <div>
-            <Header></Header>
-            asdf
+        <div className='main_form_container'>
+            <Header path={path}></Header>
+            <div style={{height:"900px"}}></div>
             <Footer></Footer>
         </div>
     )
