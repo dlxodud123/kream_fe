@@ -3,14 +3,94 @@
     margin: auto;
     font-family: "Noto Sans KR", sans-serif;
     border-top: 1px solid #ebebeb;
-    padding-top: 30px;
+    padding-top: 50px;
 }
 
-/* top */
+/* service */
+.footer_service_container{
+    padding-bottom: 56px;
+    display: flex;
+}
+.footer_service1_content{
+    width: 160px;
+}
+.footer_service1_first{
+    font-size: 16px;
+    font-weight: 700;
+    color: #222;
+    line-height: 18px;
+}
+.footer_service1_second{
+    font-size: 14px;
+    color: rgba(34, 34, 34, 0.5);
+    margin-top: 16px;
+}
+.footer_service1{
+    font-size: 14px;
+    color: rgba(34, 34, 34, 0.5);
+    margin-top: 12px;
+}
+
+.footer_service2_content{
+    width: 160px;
+    margin-left: 80px;
+}
+.footer_service2_first{
+    font-size: 16px;
+    font-weight: 700;
+    color: #222;
+    line-height: 18px;
+}
+.footer_service2_second{
+    font-size: 14px;
+    color: rgba(34, 34, 34, 0.5);
+    margin-top: 16px;
+}
+.footer_service2{
+    font-size: 14px;
+    color: rgba(34, 34, 34, 0.5);
+    margin-top: 12px;
+}
+
+.footer_service3_content{
+    width: 270px;
+    margin-left: 530px;
+}
+.footer_service3_first{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px;
+}
+.footer_service3_second{
+    font-size: 13px;
+    color: rgba(34, 34, 34, 0.5);
+    margin-top: 8px;
+}
+.footer_service3_third{
+    color: #222;
+    font-size: 13px;
+    margin-top: 8px;
+}
+.footer_service3_fourth{
+    width: 95px;
+    height: 34px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 17px;
+}
+
+/* footer(top) */
 .footer_top_container{
     display: flex;
     justify-content: space-between;
     height: 35px;
+    padding-top: 30px;
+    border-top: 1px solid #ebebeb;
 }
 .footer_top_content{
     display: flex;
@@ -39,13 +119,13 @@
     cursor: pointer;
 }
 
-/* middle */
+/* footer(middle) */
 .footer_middle_container{
     font-size: 13px;
     color: rgba(34, 34, 34, 0.5);
 }
 
-/* bottom */
+/* footer(bottom) */
 .footer_bottom_container{
     padding-top: 40px;
 }

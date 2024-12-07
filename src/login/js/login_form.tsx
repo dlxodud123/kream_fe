@@ -1,46 +1,56 @@
 import './../css/login_form.css';
 import Header from '../../common/header/tsx/header';
 import Footer from '../../common/footer/tsx/footer';
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SiNaver } from "react-icons/si";
 import { FaApple } from "react-icons/fa";
 
-interface locationState {
-    path: string;
-}
 const Login_form: React.FC = () => {
+    const navigate = useNavigate();
     
-    const location = useLocation();
-    const path = (location.state as locationState)?.path ?? "defaultPath";
+    const path: string = "login";
+
+    let [emailValue, setEmailValue] = useState<string>('');
+    let [passwordValue, setPasswordValue] = useState<string>('');
+    let [loginBtn, setLoginBtn] = useState<boolean>(false);
+
+    useEffect(() => {
+        console.log("이메일 : ", emailValue);
+        console.log("비밀번호 : ", passwordValue);
+        if ((emailValue.length > 0) && (passwordValue.length > 0)) {
+            setLoginBtn(true);
+        }else{
+            setLoginBtn(false);
+        }
+    }, [emailValue, passwordValue, loginBtn])
 
     return(
         <div className='login_form_container'>
             <Header path={path}></Header>
             <div className='login_form_content'>
                 <div className='login_form_logo_content'>
-                    <img className='login_form_logo' src={`${process.env.PUBLIC_URL}/img/kream-login-logo.png`}></img>
+                    <img onClick={() => {navigate('/')}} className='login_form_logo' src={`${process.env.PUBLIC_URL}/img/kream-login-logo.png`}></img>
                 </div>
                 <div className='login_form_email_input_container'>
                     <div className='login_form_email_input_title'>이메일 주소</div>
-                    <input className='login_form_email_input' type='text' placeholder='예) kream@kream.co.kr'></input>
-                    <button className='login_form_eamil_x'>x</button>
+                    <input onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmailValue(e.target.value)} className='login_form_email_input' type='text' placeholder='예) kream@kream.co.kr'></input>
                 </div>
                 <div className='login_form_password_input_container'>
-                    <div className='login_form_password_input_title'>이메일 주소</div>
-                    <input className='login_form_password_input' type='password'></input>
+                    <div className='login_form_password_input_title'>비밀번호</div>
+                    <input onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPasswordValue(e.target.value)} className='login_form_password_input' type='password'></input>
                 </div>
-                {
-
+                {loginBtn ?
+                    <div className='login_form_login_btn_container'>
+                        로그인
+                    </div>
+                :
+                    <div className='login_form_login_none_btn_container'>
+                        로그인
+                    </div>
                 }
-                <div className='login_form_login_none_btn_container'>
-                    로그인
-                </div>
-                {/* <div className='login_form_login_btn_container'>
-                    로그인
-                </div> */}
                 <div className='login_form_category_container'>
-                    <div className='login_form_category1'>
+                    <div onClick={() => {navigate('/join')}} className='login_form_category1'>
                         이메일 가입
                     </div>
                     <div className='login_form_category2'>

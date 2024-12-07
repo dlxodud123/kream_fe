@@ -1,19 +1,17 @@
 import './../css/header.css';
 import React, { useState } from 'react';
 import { CiSearch } from "react-icons/ci";
-import { FiSearch } from "react-icons/fi";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import { useNavigate } from 'react-router-dom';
 
 interface HeaderProps {
-    path: string;  // path prop을 받기 위한 타입 정의
+    path: string; 
 }
 
 const Header :React.FC<HeaderProps> = ({path}) => {
     const navigate = useNavigate();
-    console.log(path)
+    // console.log(path);
 
-    let [mainSelect, setMainSelect] = useState<string>("HOME");
     let [categorySelect, setCategorySelect] = useState<string>("추천");
 
     return(
@@ -31,20 +29,20 @@ const Header :React.FC<HeaderProps> = ({path}) => {
                 <div onClick={() => { navigate('/알림') }} className='header_top_content'>
                     알림
                 </div>
-                <div onClick={() => { navigate('/login', { state: { path : 'login' } }) }} className='header_top_content'>
+                <div onClick={() => { navigate('/login') }} className='header_top_content'>
                     로그인
                 </div>
             </div>
             <div className='header_main_container'>
                 <img onClick={() => {navigate('/')}} className='header_main_logo_img' src={`${process.env.PUBLIC_URL}/img/kream-logo.png`}></img>
                 <div style={{display:"flex"}}>
-                    <div onClick={() => { setMainSelect("HOME"); navigate("/HOME") }} style={{fontWeight: mainSelect === "HOME" ? '700' : '400'}} className='header_main_content'>
+                    <div onClick={() => { navigate("/") }} style={{fontWeight: path === "main" ? '700' : '400'}} className='header_main_content'>
                         HOME
                     </div>
-                    <div onClick={() => { setMainSelect("STYLE"); navigate("/STYLE") }} style={{fontWeight: mainSelect === "STYLE" ? '700' : '400'}} className='header_main_content'>
+                    <div onClick={() => { navigate("/style") }} style={{fontWeight: path === "style" ? '700' : '400'}} className='header_main_content'>
                         STYLE
                     </div>
-                    <div onClick={() => { setMainSelect("SHOP"); navigate(("/SHOP")) }} style={{fontWeight: mainSelect === "SHOP" ? '700' : '400'}} className='header_main_content'>
+                    <div onClick={() => { navigate(("/shop")) }} style={{fontWeight: path === "shop" ? '700' : '400'}} className='header_main_content'>
                         SHOP
                     </div>
                     <div className='header_main_icon_content'>
@@ -55,7 +53,7 @@ const Header :React.FC<HeaderProps> = ({path}) => {
                     </div>
                 </div>
             </div>
-            {path !== 'login' && (
+            {path === 'main' && (
                 <div className='header_category_container'>
                     <div onClick={() => { setCategorySelect("#아우터"); navigate("/아우터"); }} style={{ fontWeight: categorySelect === "#아우터" ? '700' : '400', borderBottom: categorySelect === "#아우터" ? '2px solid #222' : 'none' }} className='header_category_first_content'>
                         #아우터
