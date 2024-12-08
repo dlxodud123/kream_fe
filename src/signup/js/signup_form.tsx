@@ -1,11 +1,18 @@
 import './../css/signup_form.css';
 import Header from '../../common/header/tsx/header';
 import Footer from '../../common/footer/tsx/footer';
-import React from 'react';
+import React, { useState } from 'react';
 
 const Signup_form: React.FC = () => {
 
     const path: string = "signup";
+
+    const agreementTexts: string[] = ["[필수] 만 14세 이상입니다", "[필수] 이용약관 동의", "[필수] 개인 정보 수집 및 이용 동의", "[선택] 개인 정보 수집 및 이용 동의", "[선택] 광고성 정보 수신 모두 동의"]
+    const [agreementCheck1, setAgreementCheck1] = useState<boolean>(false);
+    const [agreementCheck2, setAgreementCheck2] = useState<boolean>(false);
+    const [agreementCheck3, setAgreementCheck3] = useState<boolean>(false);
+    const [agreementCheck4, setAgreementCheck4] = useState<boolean>(false);
+    const [agreementCheck5, setAgreementCheck5] = useState<boolean>(false);
 
     return(
         <div className='signup_form_container'>
@@ -40,10 +47,12 @@ const Signup_form: React.FC = () => {
                         <input className='signup_form_shoes_input'></input>
                     </div>
 
-                    <div className='signup_form_agreement_input_content'>
+                    <div className='signup_form_agreement_input_container'>
                         <div className='signup_form_agreement_input_title_container'>
                             <div className='signup_form_agreement_input_title_checkbox_content'>
-                                <input className='signup_form_agreement_input_title_checkbox' type='checkbox'></input>
+                                <input id='check1' className='signup_form_agreement_input_title_checkbox' type='checkbox' />
+                                <label htmlFor='check1' className='signup_form_agreement_input_title_checkbox_label' >
+                                </label>
                             </div>
                             <div className='signup_form_agreement_input_title_content'>
                                 <p className='signup_form_agreement_input_title1'>
@@ -52,6 +61,22 @@ const Signup_form: React.FC = () => {
                                 </p>
                             </div>
                         </div>
+                        {agreementTexts.map((item, index) => (
+                            <div className='signup_form_agreement_input_content'>
+                                <div className='signup_form_agreement_input_content_check'>
+                                    ✔
+                                </div>
+                                <div className='signup_form_agreement_input_content_text'>
+                                    {item}
+                                </div>  
+                            </div>
+                        ))}
+                    </div>
+                    {
+
+                    }
+                    <div className='signup_form_signup_btn_content'>
+                        본인 인증하고 가입하기
                     </div>
                 </div>
             </div>

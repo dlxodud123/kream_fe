@@ -11,7 +11,7 @@
     width: 480px;
     box-sizing: border-box;
     margin: auto;
-    padding: 20px 16px 0;
+    padding: 20px 16px 20px 16px;
     background-color: white;
     border-radius: 10px;
 }
@@ -19,6 +19,7 @@
 /* 제목 */
 .signup_form_title_content{
     font-size: 30px;
+    line-height: 30px;
     font-weight: 700;
     color: #000;
     margin-bottom: 6px;
@@ -159,7 +160,7 @@
 }
 
 /* 동의 사항 */
-.signup_form_agreement_input_content{
+.signup_form_agreement_input_container{
     padding: 16px 0;
     
 }
@@ -175,15 +176,36 @@
     justify-content: center;
     align-items: center;
 }
+
 .signup_form_agreement_input_title_checkbox{
     margin: 0;
-    width: 18px;
-    height: 18px;
+    width: 0;
+    height: 0;
 }
-.signup_form_agreement_input_title_checkbox:checked::after{
-    border: 1px solid red;
-    background-color: red;
+.signup_form_agreement_input_title_checkbox_label{
+    width: 14px; /* 체크박스 크기 */
+    height: 14px;
+    border: 2px solid rgba(34, 34, 34, 0.2); /* 체크박스 테두리 */
+    cursor: pointer;
+    position: relative; /* 자식 요소 정렬을 위한 relative */
+    display: inline-block; /* 레이아웃 정리를 위한 display */
 }
+.signup_form_agreement_input_title_checkbox:checked
++ .signup_form_agreement_input_title_checkbox_label {
+    background-color: black;
+}
+.signup_form_agreement_input_title_checkbox:checked
++ .signup_form_agreement_input_title_checkbox_label::after {
+    content: "✔"; /* 체크 표시 */
+    position: absolute;
+    top: 45%; /* 라벨의 세로 중앙 */
+    left: 50%; /* 라벨의 가로 중앙 */
+    transform: translate(-50%, -50%); /* 정확히 중앙에 배치 */
+    color: white; /* 체크 표시 색 */
+    font-size: 14px;
+    line-height: 1; /* 정렬 문제 방지 */
+}
+
 .signup_form_agreement_input_title_content{
     padding: 2px 0px 0px 12px;
 }
@@ -199,4 +221,48 @@
     font-weight: 400;
     margin: 5px 0 0 0;
     color: rgba(0,0,0,0.4);
+}
+.signup_form_agreement_input_content{
+    height: 24px;
+    margin-top: 8px;
+    display: flex;
+}
+.signup_form_agreement_input_content_check{
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: rgba(0,0,0,0.15);
+}
+.signup_form_agreement_input_content_text{
+    padding: 4px 0px 0px 12px;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 400;
+    color: #222;
+}
+
+/* 회원가입 버튼 */
+.signup_form_signup_btn_content{
+    height: 52px;
+    background-color: #222;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signup_form_signup_btn_none_content{
+    height: 52px;
+    background-color: rgba(34, 34, 34, 0.2);
+    border-radius: 10px;
+    font-size: 16px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
